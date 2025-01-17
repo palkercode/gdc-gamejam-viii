@@ -868,6 +868,7 @@ GameObject:
   - component: {fileID: 704124393}
   - component: {fileID: 704124392}
   - component: {fileID: 704124395}
+  - component: {fileID: 704124396}
   m_Layer: 0
   m_Name: Gameplay
   m_TagString: Untagged
@@ -887,6 +888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6efa95f575452f4db225d8420474664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startGeneratingOnStart: 0
   obstacle: {fileID: 3166893144042322291, guid: 2499e5ecb5c08b747977dc141d391ef2, type: 3}
   minPos: -10
   maxPos: 10
@@ -944,6 +946,25 @@ MonoBehaviour:
   mildSnowfall: {fileID: 11400000, guid: 96ecc5e1180d12743b5cdbf9e43c9bea, type: 2}
   snowstorm: {fileID: 11400000, guid: f02829d47950daf40a604621ba9fee2a, type: 2}
   frost: {fileID: 11400000, guid: 2bfcee0c678fe0c45863a89a218a5f09, type: 2}
+--- !u!114 &704124396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704124391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6efa95f575452f4db225d8420474664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startGeneratingOnStart: 1
+  obstacle: {fileID: 8989827097048098552, guid: d96fe8482e491c14cbf5cdf5adc6a2c4, type: 3}
+  minPos: -10
+  maxPos: 10
+  y: -10
+  minTimeBetweenSpawn: 10
+  maxTimeBetweenSpawn: 30
 --- !u!1 &819471571
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &819471572
 RectTransform:
   m_ObjectHideFlags: 0

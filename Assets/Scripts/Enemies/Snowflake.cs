@@ -8,6 +8,8 @@ public class Snowflake : Obstacle
 {
     private float _horizontalSpeed;
     private float _verticalSpeed;
+
+    public float liveTime;
     
     private void Start()
     {
@@ -27,7 +29,7 @@ public class Snowflake : Obstacle
 
     private IEnumerator SnowflakeCoroutine()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(liveTime);
         Destroy(gameObject);
     }
 }

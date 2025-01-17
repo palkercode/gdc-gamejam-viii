@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Enemies;
 using UnityEngine;
@@ -7,10 +8,17 @@ namespace Gameplay
 {
     public class ObstacleGenerator : MonoBehaviour
     {
+        [SerializeField] private bool startGeneratingOnStart;
+        
         public Obstacle obstacle;
 
         public float minPos, maxPos, y;
         public float minTimeBetweenSpawn, maxTimeBetweenSpawn;
+
+        private void Start()
+        {
+            if (startGeneratingOnStart) StartGenerating();
+        }
 
         public void StartGenerating()
         {
