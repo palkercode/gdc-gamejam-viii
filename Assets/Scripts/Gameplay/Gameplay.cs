@@ -16,10 +16,14 @@ namespace Gameplay
         
         private void Start()
         {
-            // TODO: Implement and start intro cutscene
+            StartCoroutine(nameof(IntroCoroutine));
+        }
+
+        private IEnumerator IntroCoroutine()
+        {
+            yield return new WaitForSeconds(4);
             
             StartCoroutine(nameof(ScoreCoroutine));
-            StartCoroutine(nameof(GameplayCoroutine));
         }
 
         private IEnumerator ScoreCoroutine()
@@ -28,15 +32,6 @@ namespace Gameplay
             scoreText.text = score.ToString("D6");
             yield return new WaitForSeconds(0.1f);
             StartCoroutine(nameof(ScoreCoroutine));
-        }
-
-        private IEnumerator GameplayCoroutine()
-        {
-            _waveController.StartAppropriateWave(wavesSurvived);
-            Debug.Log(_waveController.currentWave.name);
-            yield return new WaitForSeconds(_waveController.currentWave.secondsToFinish);
-            wavesSurvived++;
-            StartCoroutine(nameof(GameplayCoroutine));
         }
     }
 }

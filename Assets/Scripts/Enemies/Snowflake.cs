@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Enemies;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,6 +13,8 @@ public class Snowflake : Obstacle
     {
         _horizontalSpeed = Random.Range(minHorizontalSpeed, maxHorizontalSpeed);
         _verticalSpeed = Random.Range(minVerticalSpeed, maxVerticalSpeed);
+
+        StartCoroutine(nameof(SnowflakeCoroutine));
     }
 
     private void Update()
@@ -20,5 +23,11 @@ public class Snowflake : Obstacle
             _horizontalSpeed * Time.deltaTime, 
             _verticalSpeed * Time.deltaTime,
             0);
+    }
+
+    private IEnumerator SnowflakeCoroutine()
+    {
+        yield return new WaitForSeconds(15);
+        Destroy(gameObject);
     }
 }

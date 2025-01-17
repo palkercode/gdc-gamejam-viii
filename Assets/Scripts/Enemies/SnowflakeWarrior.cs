@@ -6,6 +6,8 @@ public class SnowflakeWarrior : MonoBehaviour
 {
     [SerializeField] private Transform player;
 
+    [SerializeField] private Animator _animator;
+
     public float speed;
 
     private void Start()
@@ -17,5 +19,10 @@ public class SnowflakeWarrior : MonoBehaviour
     {
         // TODO: Change lerp to smoothdamp
         transform.position = Vector3.Lerp(transform.position, player.position, speed * Time.deltaTime);
+    }
+
+    public void Die()
+    {
+        _animator.SetTrigger("Hide");
     }
 }

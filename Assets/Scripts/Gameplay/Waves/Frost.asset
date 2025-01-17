@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Frost
   m_EditorClassIdentifier: 
   name: Frost
-  secondsToFinish: 30
   enableSnowflakes: 1
-  minTimeBetweenSpawn: 0.2
-  maxTimeBetweenSpawn: 0.8
+  minTimeBetweenSpawn: 0.03
+  maxTimeBetweenSpawn: 0.2
+  minHorizontalSpeed: 0.2
+  maxHorizontalSpeed: 0.7
   enableSnowflakeWarriors: 1
   snowflakeWarriorsToSpawn: 1
   enableBoss: 0

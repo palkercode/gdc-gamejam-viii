@@ -15,8 +15,10 @@ MonoBehaviour:
   name: Snowfall
   secondsToFinish: 10
   enableSnowflakes: 1
-  minTimeBetweenSpawn: 0.3
-  maxTimeBetweenSpawn: 0.8
+  minTimeBetweenSpawn: 0.1
+  maxTimeBetweenSpawn: 0.4
+  minHorizontalSpeed: 0.2
+  maxHorizontalSpeed: 0.7
   enableSnowflakeWarriors: 0
   snowflakeWarriorsToSpawn: 3
   enableBoss: 0

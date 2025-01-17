@@ -8,11 +8,10 @@ namespace Gameplay.Waves
         [Header("Main Attributes")]
         public string name;
         
-        public int secondsToFinish;
-        
         [Header("Snowflakes")]
         public bool enableSnowflakes;
         public float minTimeBetweenSpawn, maxTimeBetweenSpawn;
+        public float minHorizontalSpeed, maxHorizontalSpeed;
         
         [Header("Snowflake Warriors")]
         public bool enableSnowflakeWarriors;

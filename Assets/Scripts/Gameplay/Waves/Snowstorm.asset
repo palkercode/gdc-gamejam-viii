@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Snowstorm
   m_EditorClassIdentifier: 
   name: Snowstorm
-  secondsToFinish: 30
   enableSnowflakes: 1
-  minTimeBetweenSpawn: 0.1
-  maxTimeBetweenSpawn: 0.5
+  minTimeBetweenSpawn: 0.03
+  maxTimeBetweenSpawn: 0.2
+  minHorizontalSpeed: 0.5
+  maxHorizontalSpeed: 1
   enableSnowflakeWarriors: 0
   snowflakeWarriorsToSpawn: 3
   enableBoss: 0

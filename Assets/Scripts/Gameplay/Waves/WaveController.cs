@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,25 +22,6 @@ namespace Gameplay.Waves
         [SerializeField] private Wave snowstorm;
         [SerializeField] private Wave frost;
 
-        public void StartAppropriateWave(int wavesSurvived)
-        {
-            switch (wavesSurvived)
-            {
-                case 0:
-                    StartWave(frost);
-                    break;
-                case 1 or 2:
-                    int rand = Random.Range(0, 2);
-                    if (rand == 0) StartWave(mildSnowfall);
-                    if (rand == 1) StartWave(snowstorm);
-                    if (rand == 2) StartWave(frost);
-                    break;
-                case 3:
-                    StartWave(frost);
-                    break;
-            }
-        }
-
         public void StartWave(Wave wave)
         {
             currentWave = wave;
@@ -47,18 +30,34 @@ namespace Gameplay.Waves
             {
                 snowflake.minTimeBetweenSpawn = wave.minTimeBetweenSpawn;
                 snowflake.maxTimeBetweenSpawn = wave.maxTimeBetweenSpawn;
+
+                snowflake.obstacle.minHorizontalSpeed = wave.minHorizontalSpeed;
+                snowflake.obstacle.maxHorizontalSpeed = wave.maxHorizontalSpeed;
+            
                 snowflake.StartGenerating();
             }
 
             if (wave.enableSnowflakeWarriors)
             {
+                List<GameObject> warriors = new List<GameObject>();
+            
                 for (int i = 0; i < wave.snowflakeWarriorsToSpawn; i++)
                 {
-                    Instantiate(snowflakeWarrior, new Vector3(
-                        player.position.x + 5 + i,
-                        player.position.y + 5 + i), 
-                        Quaternion.identity);
+                    warriors.Add(Instantiate(snowflakeWarrior, new Vector3(
+                            player.position.x + 5 + i,
+                            player.position.y + 5 + i), 
+                        Quaternion.identity));
                 }
+            }
+        }
+
+        public void StopWave(Wave wave)
+        {
+            snowflake.StopGenerating();
+
+            foreach (var warrior in GameObject.FindGameObjectsWithTag("Enemy"))
+            {
+                warrior.GetComponent<SnowflakeWarrior>().Die();
             }
         }
     }

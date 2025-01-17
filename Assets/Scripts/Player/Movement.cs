@@ -16,11 +16,12 @@ namespace Player {
 
         private void Update()
         {
+            transform.position += new Vector3(Input.GetAxis("Mouse X") * sensitivity, Input.GetAxis("Mouse Y") * sensitivity);
+            
             transform.position = new Vector3(
                 Mathf.Clamp(transform.position.x, minXPos, maxXPos),
                 Mathf.Clamp(transform.position.y, minYPos, maxYPos)
             );
-            transform.position += new Vector3(Input.GetAxis("Mouse X") * sensitivity, Input.GetAxis("Mouse Y") * sensitivity);
         }
     }
 }
